@@ -10,7 +10,9 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            
+            //Board test
+            Board board1 = new Board();
+            board1.draw();
         }
     }
 }

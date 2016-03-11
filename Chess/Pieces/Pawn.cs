@@ -8,5 +8,6 @@ namespace Chess.Pieces
 {
     class Pawn : Piece
     {
+
     }
 }
