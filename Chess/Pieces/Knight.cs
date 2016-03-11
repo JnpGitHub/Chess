@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess.Pieces
 {
-    class Knight : Piece
+    class Knight
     {
     }
 }

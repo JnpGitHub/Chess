@@ -28,6 +28,14 @@ namespace Chess
         }
 
         /// <summary>
+        /// Takes a piece and its coordinates and places it at that spot on the board
+        /// </summary>
+        public void SetPiece(Piece piece, int x, int y)
+        {
+            grid[x][y] = piece;
+        }
+
+        /// <summary>
         /// Draws the board to the console for now
         /// </summary>
         public void draw()
