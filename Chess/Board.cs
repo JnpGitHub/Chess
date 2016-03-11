@@ -35,20 +35,27 @@ namespace Chess
             grid[x][y] = piece;
         }
 
+        public object GetPiece(int x, int y)
+        {
+            return this.grid[x][y];
+        }
         /// <summary>
         /// Draws the board to the console for now
         /// </summary>
-        public void draw()
+        public void Draw()
         {
             for (int y = 0; y < Board.rows; y++)                        //For every row
             {
                 for (int x = 0; x < Board.columns; x++)                 //For every space in each row
                 {
-                    if(this.grid[x][y] == "--")                         //If the space is empty, print --
+                    if(this.GetPiece(x, y) == "--")                         //If the space is empty, print --
                     {
                         Console.Write("--");
                     }
-                    //Else print the piece's type
+                    else                                                //If the space has a piece, print the piece's type
+                    {
+                        Console.Write((this.GetPiece(x, y)).GetSymbol()); //How can I get the symbol of the piece
+                    }
                 }
                 Console.WriteLine();
             }

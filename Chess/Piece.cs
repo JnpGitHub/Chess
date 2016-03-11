@@ -12,7 +12,7 @@ namespace Chess
         private int x;                          //The X coordinate of the piece on the board
         private int y;                          //The Y coordinate of the piece on the board
         private List<int[]> validMoves;         //A list of valid spaces this piece can move
-
+        
         /// <summary>
         /// Creates a piece with a color and places it on the board passed at the x and y coordinates
         /// </summary>
@@ -24,5 +24,7 @@ namespace Chess
             validMoves = new List<int[]>();
             board.SetPiece(this, this.x, this.y);
         }
+
+        
     }
 }

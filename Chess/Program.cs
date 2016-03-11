@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chess.Pieces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,9 @@ namespace Chess
         {
             //Board test
             Board board1 = new Board();
-            board1.draw();
+            Pawn whitePawn1 = new Pawn("white", board1, 0, 6);
+            board1.Draw();
+            Console.WriteLine(whitePawn1.GetSymbol());
         }
     }
 }
