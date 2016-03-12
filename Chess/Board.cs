@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chess.Pieces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,19 @@ namespace Chess
     {
         private static int columns = 8;                                 //The number of columns on the board
         private static int rows = 8;                                    //The number of rows on the board
-        private List<List<Object>> grid = new List<List<Object>>();     //A multidimensional list that holds the Piece objects and blank spaces
+        private List<List<Tile>> grid = new List<List<Tile>>();         //A multidimensional list that holds 8 by 8 tile objects
 
         /// <summary>
-        /// Creates a board with empty spaces designated by "--"
+        /// Creates a board of empty tile objects
         /// </summary>
         public Board()
         {
             for(int y = 0; y < Board.rows; y++)
             {
-                this.grid.Add(new List<Object>());                      //Add a list for every row
+                this.grid.Add(new List<Tile>());                        //Add a list of tiles for every row
                 for(int x = 0; x < Board.columns; x++)
                 {
-                    this.grid[y].Add("--");                             //Insert a blank space for every column in each row
+                    this.grid[y].Add(new Tile(x, y, false, null));      //Insert an empty tile in every column
                 }
             }
         }
@@ -32,34 +33,37 @@ namespace Chess
         /// </summary>
         public void SetPiece(Piece piece, int x, int y)
         {
-            grid[x][y] = piece;
+            grid[x][y].SetPiece(piece);
         }
 
-        public object GetPiece(int x, int y)
+        /// <summary>
+        /// Return the object at passed coordinate
+        /// </summary>
+        public object Get(int x, int y)
         {
-            return this.grid[x][y];
+            return this.grid[x][y].GetPiece();
         }
+
         /// <summary>
         /// Draws the board to the console for now
         /// </summary>
         public void Draw()
         {
-            for (int y = 0; y < Board.rows; y++)                        //For every row
+            for(int y = 0; y < rows; y++)                                   //For every row...
             {
-                for (int x = 0; x < Board.columns; x++)                 //For every space in each row
+                for(int x = 0; x < columns; x++)                            //For every tile in the row...
                 {
-                    if(this.GetPiece(x, y) == "--")                         //If the space is empty, print --
+                    if (!grid[x][y].IsOccupied())
                     {
-                        Console.Write("--");
+                        Console.Write("0");                                 //Write -- if the tile is not occupied
                     }
-                    else                                                //If the space has a piece, print the piece's type
+                    else
                     {
-                        Console.Write((this.GetPiece(x, y)).GetSymbol()); //How can I get the symbol of the piece
+                        Console.Write(grid[x][y].GetPiece().GetSymbol());   //Write the symbol of the piece in the tile if it is occupied
                     }
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
         }
 
     }

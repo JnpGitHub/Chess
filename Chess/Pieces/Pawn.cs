@@ -9,8 +9,7 @@ namespace Chess.Pieces
     class Pawn : Piece          //Inherits from the Piece class
     {
         private static int value = 1;       //The amount of points this piece is worth
-        public static String type = "P";   //The type of the piece designated by a letter
-        private bool firstMove;
+        private bool firstMove;             //Whether or not the piece has moved
 
         /// <summary>
         /// Creates a Pawn piece and sets its firstMove value to true
@@ -18,16 +17,7 @@ namespace Chess.Pieces
         public Pawn(String color, Board board, int x, int y) : base(color, board, x, y)
         {
             this.firstMove = true;
+            this.symbol = 'P';
         }
-
-        /// <summary>
-        /// type getter
-        /// </summary>
-        public string GetSymbol()
-        {
-            return type;
-        }
-
-        
     }
 }

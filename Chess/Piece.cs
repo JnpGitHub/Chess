@@ -9,6 +9,7 @@ namespace Chess
     abstract class Piece
     {
         private String color;                   //The pieces color
+        public Char symbol;                     //The pieces type as a character
         private int x;                          //The X coordinate of the piece on the board
         private int y;                          //The Y coordinate of the piece on the board
         private List<int[]> validMoves;         //A list of valid spaces this piece can move
@@ -25,6 +26,9 @@ namespace Chess
             board.SetPiece(this, this.x, this.y);
         }
 
-        
+        public Char GetSymbol()
+        {
+            return symbol;
+        }
     }
 }

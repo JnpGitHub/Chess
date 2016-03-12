@@ -14,8 +14,9 @@ namespace Chess
             //Board test
             Board board1 = new Board();
             Pawn whitePawn1 = new Pawn("white", board1, 0, 6);
+            Pawn whitePawn2 = new Pawn("white", board1, 1, 6);
             board1.Draw();
-            Console.WriteLine(whitePawn1.GetSymbol());
+            
         }
     }
 }
