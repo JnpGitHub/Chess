@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace Chess.Pieces
 {
-    class Rook
+    class Rook : Piece
     {
+        private static int value = 5;       //The amount of points this piece is worth
+
+        /// <summary>
+        /// Creates a Rook piece and sets its symbol to R
+        /// </summary>
+        public Rook(String color, Board board, int x, int y) : base(color, board, x, y)
+        {
+            symbol = 'R';
+        }
+
+        /// <summary>
+        /// Returns true if a Rook can move from the old position to the new position
+        /// </summary>
+        public override bool IsValidMove(int oldx, int oldy, int newx, int newy)
+        {
+            return true;
+        }
     }
 }

@@ -20,10 +20,10 @@ namespace Chess
         {
             for(int y = 0; y < Board.rows; y++)
             {
-                this.grid.Add(new List<Tile>());                        //Add a list of tiles for every row
+                grid.Add(new List<Tile>());                             //Add a list of tiles for every row
                 for(int x = 0; x < Board.columns; x++)
                 {
-                    this.grid[y].Add(new Tile(x, y, false, null));      //Insert an empty tile in every column
+                    grid[y].Add(new Tile(x, y, false, null));           //Insert an empty tile in every column
                 }
             }
         }
@@ -37,11 +37,19 @@ namespace Chess
         }
 
         /// <summary>
-        /// Return the object at passed coordinate
+        /// Removes the piece at the passed coordinates
+        /// </summary>
+        public void RemovePiece(int x, int y)
+        {
+            grid[x][y].RemovePiece();
+        }
+
+        /// <summary>
+        /// Return the object at passed position
         /// </summary>
         public object Get(int x, int y)
         {
-            return this.grid[x][y].GetPiece();
+            return grid[x][y].GetPiece();
         }
 
         /// <summary>
@@ -49,21 +57,30 @@ namespace Chess
         /// </summary>
         public void Draw()
         {
-            for(int y = 0; y < rows; y++)                                   //For every row...
+            for(int y = 0; y < rows; y++)                                           //For every row...
             {
-                for(int x = 0; x < columns; x++)                            //For every tile in the row...
+                for(int x = 0; x < columns; x++)                                    //For every tile in the row...
                 {
                     if (!grid[x][y].IsOccupied())
                     {
-                        Console.Write("0");                                 //Write -- if the tile is not occupied
+                        Console.Write("-- ");                                       //Write -- if the tile is not occupied
                     }
                     else
                     {
-                        Console.Write(grid[x][y].GetPiece().GetSymbol());   //Write the symbol of the piece in the tile if it is occupied
+                        if(grid[x][y].GetPiece().GetColor() == "white")             //Write the color and symbol of the piece in occupied tiles
+                        {
+                            Console.Write("W" + grid[x][y].GetPiece().GetSymbol() + " ");
+                        }
+                        else
+                        {
+                            Console.Write("B" + grid[x][y].GetPiece().GetSymbol() + " ");
+                        }
+                        
                     }
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
     }

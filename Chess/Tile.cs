@@ -30,12 +30,21 @@ namespace Chess
         }
 
         /// <summary>
-        /// Sets piece equal to the piece object passed and changed the tile to occupied
+        /// Sets piece equal to the piece object passed and changes the tile to occupied
         /// </summary>
         public void SetPiece(Piece piece)
         {
-            this.isOccupied = true;
+            isOccupied = true;
             this.piece = piece;
+        }
+
+        /// <summary>
+        /// Removes the piece on this tile and changes the tile to unoccupied
+        /// </summary>
+        public void RemovePiece()
+        {
+            isOccupied = false;
+            piece = null;
         }
 
         /// <summary>

@@ -16,8 +16,16 @@ namespace Chess.Pieces
         /// </summary>
         public Pawn(String color, Board board, int x, int y) : base(color, board, x, y)
         {
-            this.firstMove = true;
-            this.symbol = 'P';
+            firstMove = true;
+            symbol = 'P';
+        }
+
+        /// <summary>
+        /// Returns true if a Pawn can move from the old position to the new position
+        /// </summary>
+        public override bool IsValidMove(int oldx, int oldy, int newx, int newy)
+        {
+            return true;
         }
     }
 }

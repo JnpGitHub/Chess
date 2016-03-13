@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace Chess.Pieces
 {
-    class Queen
+    class Queen : Piece
     {
+        private static int value = 10;       //The amount of points this piece is worth
+
+        /// <summary>
+        /// Creates a Queen piece and sets its symbol to Q
+        /// </summary>
+        public Queen(String color, Board board, int x, int y) : base(color, board, x, y)
+        {
+            symbol = 'Q';
+        }
+
+        /// <summary>
+        /// Returns true if a Queen can move from the old position to the new position
+        /// </summary>
+        public override bool IsValidMove(int oldx, int oldy, int newx, int newy)
+        {
+            return true;
+        }
     }
 }
