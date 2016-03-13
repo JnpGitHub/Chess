@@ -8,7 +8,7 @@ namespace Chess.Pieces
 {
     class King : Piece
     {
-        private bool firstMove;             //Whether or not the piece has moved for use with castling
+        private bool firstMove;
 
         /// <summary>
         /// Creates a King piece and sets its firstMove value to true and symbol to K

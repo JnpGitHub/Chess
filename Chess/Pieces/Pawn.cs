@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Chess.Pieces
 {
-    class Pawn : Piece          //Inherits from the Piece class
+    class Pawn : Piece
     {
-        private static int value = 1;       //The amount of points this piece is worth
-        private bool firstMove;             //Whether or not the piece has moved
+        private static int value = 1;
+        private bool firstMove;
 
         /// <summary>
         /// Creates a Pawn piece and sets its firstMove value to true

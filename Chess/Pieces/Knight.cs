@@ -8,7 +8,7 @@ namespace Chess.Pieces
 {
     class Knight : Piece
     {
-        private static int value = 3;       //The amount of points this piece is worth
+        private static int value = 3;
 
         /// <summary>
         /// Creates a Knight piece and sets its symbol to N

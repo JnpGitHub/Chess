@@ -8,7 +8,7 @@ namespace Chess.Pieces
 {
     class Rook : Piece
     {
-        private static int value = 5;       //The amount of points this piece is worth
+        private static int value = 5;
 
         /// <summary>
         /// Creates a Rook piece and sets its symbol to R

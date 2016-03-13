@@ -64,7 +64,7 @@ namespace Chess
             #endregion
 
             board1.Draw();
-            whitePawn1.Move(board1, whitePawn1.GetPosition()[0], whitePawn1.GetPosition()[1], 0, 4);
+            whitePawn1.Move(board1, whitePawn1.x, whitePawn1.y, 0, 4);
             board1.Draw();
         }
     }
