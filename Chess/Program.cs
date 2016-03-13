@@ -11,8 +11,11 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            #region initialize board and pieces
+            #region initialize players, board and pieces
+            Player whitePlayer = new Player("white", true);
+            Player blackPlayer = new Player("black", false);
             Board board1 = new Board();
+
             //White Pawns
             Pawn whitePawn1 = new Pawn("white", board1, 0, 6);
             Pawn whitePawn2 = new Pawn("white", board1, 1, 6);
@@ -64,7 +67,15 @@ namespace Chess
             #endregion
 
             board1.Draw();
-            whitePawn1.Move(board1, whitePawn1.x, whitePawn1.y, 0, 4);
+            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 3);
+            board1.Draw();
+            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 4);
+            board1.Draw();
+            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 5);
+            board1.Draw();
+            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 6);
+            board1.Draw();
+            whitePawn2.Move(board1, whitePawn2.x, whitePawn2.y, 0, 5);
             board1.Draw();
         }
     }

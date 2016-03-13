@@ -22,7 +22,7 @@ namespace Chess.Pieces
         /// <summary>
         /// Returns true if a King can move from the old position to the new position
         /// </summary>
-        public override bool IsValidMove(int oldx, int oldy, int newx, int newy)
+        public override bool IsValidMove(Board board, int oldx, int oldy, int newx, int newy)
         {
             return true;
         }

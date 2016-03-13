@@ -29,15 +29,21 @@ namespace Chess
         /// <summary>
         /// Returns true if the piece can move from the old position to the new position
         /// </summary>
-        abstract public bool IsValidMove(int oldx, int oldy, int newx, int newy);
+        abstract public bool IsValidMove(Board board, int oldx, int oldy, int newx, int newy);
 
         /// <summary>
         /// Moves the piece from one tile to another if it is a valid move. Returns true if the piece was moved
         /// </summary>
         public bool Move(Board board, int oldx, int oldy, int newx, int newy)
         {
-            if(IsValidMove(oldx, oldy, newx, newy))
+            if(IsValidMove(board, oldx, oldy, newx, newy))
             {
+                //If the new tile is has an enemy piece add that piece to the players captured pieces
+                if(board.GetTile(newx, newy).isOccupied)
+                {
+                    board.SetPiece(this, newx, newy);
+                    board.RemovePiece(oldx, oldy);
+                }
                 board.SetPiece(this, newx, newy);
                 board.RemovePiece(oldx, oldy);
             }

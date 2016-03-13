@@ -35,6 +35,8 @@ namespace Chess
         {
             grid[x][y].piece = piece;
             grid[x][y].isOccupied = true;
+            piece.x = x;
+            piece.y = y;
         }
 
         /// <summary>
@@ -46,12 +48,9 @@ namespace Chess
             grid[x][y].piece = null;
         }
 
-        /// <summary>
-        /// Return the object at passed position
-        /// </summary>
-        public object Get(int x, int y)
+        public Tile GetTile(int x, int y)
         {
-            return grid[x][y].piece;
+            return grid[x][y];
         }
 
         /// <summary>

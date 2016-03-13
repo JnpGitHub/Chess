@@ -23,8 +23,66 @@ namespace Chess.Pieces
         /// <summary>
         /// Returns true if a Pawn can move from the old position to the new position
         /// </summary>
-        public override bool IsValidMove(int oldx, int oldy, int newx, int newy)
+        public override bool IsValidMove(Board board, int oldx, int oldy, int newx, int newy)
         {
+            #region Capturing
+            if(color == "white")
+            {
+                if(oldy - newy == 1 && Math.Abs(oldx - newx) == 1 && board.GetTile(newx, newy).isOccupied && board.GetTile(newx, newy).piece.color == "black"){
+                    return true;
+                }
+            }
+            else
+            {
+                if(newy - oldy == 1 && Math.Abs(newx - oldx) == 1 && board.GetTile(newx, newy).isOccupied && board.GetTile(newx, newy).piece.color == "white")
+                {
+                    return true;
+                }
+            }
+            #endregion
+
+            #region Movement
+            if (firstMove)
+            {
+                if(color == "white")
+                {
+                    //If the white pawn has a different x, moved more than 2 spaces, or has a piece in front of it return false
+                    if(oldx != newx || oldy - newy != 1 && oldy - newy != 2 || board.GetTile(oldx, oldy - 1).isOccupied)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    //If the black pawn has a different x, moved more than 2 spaces, or has a piece in front of it return false
+                    if (oldx != newx || newy - oldy != 1 && newy - oldy != 2 || board.GetTile(oldx, oldy + 1).isOccupied)
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                if (color == "white")
+                {
+                    //If the white pawn has a different x, moved more than 1 space, or has a piece in front of it return false
+                    if (oldx != newx || oldy - newy != 1 || board.GetTile(oldx, oldy - 1).isOccupied)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    //If the black pawn has a different x, moved more than 1 space, or has a piece in front of it return false
+                    if (oldx != newx || newy - oldy != 1 || board.GetTile(oldx, oldy + 1).isOccupied)
+                    {
+                        return false;
+                    }
+                }
+            }
+            #endregion
+
+            firstMove = false;
             return true;
         }
     }
