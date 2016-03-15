@@ -65,18 +65,37 @@ namespace Chess
             Rook blackRook1 = new Rook("black", board1, 0, 0);
             Rook blackRook2 = new Rook("black", board1, 7, 0);
             #endregion
+            
+            bool running = true;
+            while (running)
+            {
+                board1.Draw();
 
-            board1.Draw();
-            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 3);
-            board1.Draw();
-            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 4);
-            board1.Draw();
-            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 5);
-            board1.Draw();
-            blackPawn1.Move(board1, blackPawn1.x, blackPawn1.y, 0, 6);
-            board1.Draw();
-            whitePawn2.Move(board1, whitePawn2.x, whitePawn2.y, 0, 5);
-            board1.Draw();
+                Console.Write("X: ");
+                int oldx = Convert.ToInt32(Console.ReadLine()) - 1;
+                
+                Console.Write("Y: ");
+                int oldy = Convert.ToInt32(Console.ReadLine()) - 1;
+                Console.WriteLine();
+
+                Console.Write("New X: ");
+                int newx = Convert.ToInt32(Console.ReadLine()) - 1;
+
+                Console.Write("New Y: ");
+                int newy = Convert.ToInt32(Console.ReadLine()) - 1;
+                Console.WriteLine();
+
+
+                if (board1.GetTile(oldx, oldy).isOccupied && board1.GetTile(oldx, oldy).piece.Move(board1, oldx, oldy, newx, newy))
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Move");
+                    Console.WriteLine();
+                }
+            }
         }
     }
 }

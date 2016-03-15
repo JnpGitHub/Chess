@@ -36,16 +36,14 @@ namespace Chess
         /// </summary>
         public bool Move(Board board, int oldx, int oldy, int newx, int newy)
         {
-            if(IsValidMove(board, oldx, oldy, newx, newy))
+            if(board.GetTile(oldx, oldy).isOccupied)
             {
-                //If the new tile is has an enemy piece add that piece to the players captured pieces
-                if(board.GetTile(newx, newy).isOccupied)
+                if(IsValidMove(board, oldx, oldy, newx, newy))
                 {
                     board.SetPiece(this, newx, newy);
                     board.RemovePiece(oldx, oldy);
+                    return true;
                 }
-                board.SetPiece(this, newx, newy);
-                board.RemovePiece(oldx, oldy);
             }
             return false;
         }

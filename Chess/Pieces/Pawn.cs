@@ -26,6 +26,7 @@ namespace Chess.Pieces
         public override bool IsValidMove(Board board, int oldx, int oldy, int newx, int newy)
         {
             #region Capturing
+            //A pawn can move diagonally one tile forward if that new tile has an enemy piece
             if(color == "white")
             {
                 if(oldy - newy == 1 && Math.Abs(oldx - newx) == 1 && board.GetTile(newx, newy).isOccupied && board.GetTile(newx, newy).piece.color == "black"){

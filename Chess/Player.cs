@@ -11,7 +11,7 @@ namespace Chess
         public String color { get; }
         public bool turn { get; set; }
         private List<Piece> pieces = new List<Piece>();
-        private List<Piece> capturedPieces = new List<Piece>();     //A list of pieces this player has captured
+        private List<Piece> capturedPieces = new List<Piece>();
 
         /// <summary>
         /// Creates a player with a color and turn
