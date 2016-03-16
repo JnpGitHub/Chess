@@ -23,7 +23,38 @@ namespace Chess.Pieces
         /// </summary>
         public override bool IsValidMove(Board board, int oldx, int oldy, int newx, int newy)
         {
-            return true;
+            #region Path Checking
+            // Returns false if the Knight tries to move to a space with a piece of the same color.
+            if (board.GetTile(newx, newy).isOccupied)
+            {
+                if(board.GetTile(newx, newy).piece.color == board.GetTile(oldx, oldy).piece.color)
+                {
+                    return false;
+                }
+            }
+            #endregion
+
+            #region Movement
+            // Returns false if the Knight tries to move horizontally or vertically.
+            if (oldx == newx || oldy == newy)
+            {
+                return false;
+            }
+
+            // Returns false if the Knight tries to move more than two spaces.
+            if(Math.Abs(oldx - newx) > 2 || Math.Abs(oldy - newy) > 2)
+            {
+                return false;
+            }
+
+            // Returns true if the Knight isn't trying to move diagonally.
+            if (Math.Abs(oldx - newx) - Math.Abs(oldy - newy) == 1 || Math.Abs(oldx - newx) - Math.Abs(oldy - newy) == -1)
+            {
+                return true; 
+            }
+            #endregion
+
+            return false;
         }
     }
 }

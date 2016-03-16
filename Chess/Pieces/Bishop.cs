@@ -23,8 +23,8 @@ namespace Chess.Pieces
         /// </summary>
         public override bool IsValidMove(Board board, int oldx, int oldy, int newx, int newy)
         {
-
-            // Returns false if the new tile has a piece with the same color as the moving piece
+            #region Path Checking
+            // Returns false if the new tile has a piece with the same color as the Bishop
             if(board.GetTile(newx, newy).isOccupied)
             {
                 if(board.GetTile(newx, newy).piece.color == board.GetTile(oldx, oldy).piece.color)
@@ -33,15 +33,16 @@ namespace Chess.Pieces
                 }
             }
 
+            
             // When moving down right, returns false if any space between the old spot and new spot are occupied
-            if(newx > oldx && newy > oldy)
+            if (newx > oldx && newy > oldy)
             {
                 int y = oldy + 1;
-                for(int x = oldx + 1; x < newx; x++)
+                for (int x = oldx + 1; x < newx; x++)
                 {
                     if (x >= 0 && x < Board.columns && y >= 0 && y < Board.rows)
                     {
-                        if(board.GetTile(x, y).isOccupied)
+                        if (board.GetTile(x, y).isOccupied)
                         {
                             return false;
                         }
@@ -51,10 +52,10 @@ namespace Chess.Pieces
             }
 
             // When moving down left, returns false if any space between the old spot and new spot are occupied
-            if(newx < oldx && newy > oldy)
+            if (newx < oldx && newy > oldy)
             {
                 x = oldx - 1;
-                for(int y = oldy + 1; y < newy; y++)
+                for (int y = oldy + 1; y < newy; y++)
                 {
                     if (x >= 0 && x < Board.columns && y >= 0 && y < Board.rows)
                     {
@@ -68,10 +69,10 @@ namespace Chess.Pieces
             }
 
             // When moving up right, returns false if any space between the old spot and new spot are occupied
-            if(newx > oldx && newy < oldy)
+            if (newx > oldx && newy < oldy)
             {
                 y = oldy - 1;
-                for(int x = oldx + 1; x < newx; x++)
+                for (int x = oldx + 1; x < newx; x++)
                 {
                     if (x >= 0 && x < Board.columns && y >= 0 && y < Board.rows)
                     {
@@ -85,10 +86,10 @@ namespace Chess.Pieces
             }
 
             // When moving up left, returns false if any space between the old spot and new spot are occupied
-            if(newx < oldx && newy < oldy)
+            if (newx < oldx && newy < oldy)
             {
                 y = oldy - 1;
-                for(int x = oldx - 1; x > newx; x--)
+                for (int x = oldx - 1; x > newx; x--)
                 {
                     if (x >= 0 && x < Board.columns && y >= 0 && y < Board.rows)
                     {
@@ -100,12 +101,16 @@ namespace Chess.Pieces
                     y--;
                 }
             }
+            #endregion
 
+            #region Movement
             // Checks if the new spot is diagonal to the old spot
-            if(Math.Abs(oldx - newx) == Math.Abs(oldy - newy))
+            if (Math.Abs(oldx - newx) == Math.Abs(oldy - newy))
             {
                 return true;
-            }
+            } 
+            #endregion
+
             return false;
         }
     }

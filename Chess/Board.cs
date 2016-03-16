@@ -1,6 +1,7 @@
 ﻿using Chess.Pieces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace Chess
         /// <summary>
         /// Draws the board to the console
         /// </summary>
-        public void Draw()
+        public void DrawToConsole()
         {
             for(int y = 0; y < rows; y++)
             {
@@ -91,6 +92,5 @@ namespace Chess
             Console.WriteLine(" 1  2  3  4  5  6  7  8");
             Console.WriteLine();
         }
-
     }
 }

@@ -1,16 +1,22 @@
 ﻿using Chess.Pieces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Chess
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(String[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Game());
+
             #region initialize players, board and pieces
             Player whitePlayer = new Player("white", true);
             Player blackPlayer = new Player("black", false);
@@ -69,8 +75,8 @@ namespace Chess
             bool running = true;
             while (running)
             {
-                board1.Draw();
-
+                board1.DrawToConsole();
+                
                 Console.Write("X: ");
                 int oldx = Convert.ToInt32(Console.ReadLine()) - 1;
                 
@@ -85,6 +91,8 @@ namespace Chess
                 int newy = Convert.ToInt32(Console.ReadLine()) - 1;
                 Console.WriteLine();
 
+                Console.WriteLine("**************************************************************************");
+                Console.WriteLine();
 
                 if (board1.GetTile(oldx, oldy).isOccupied && board1.GetTile(oldx, oldy).piece.Move(board1, oldx, oldy, newx, newy))
                 {
