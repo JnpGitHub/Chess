@@ -10,7 +10,7 @@
   <Class Name="Chess.Pieces.King">
     <Position X="2.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAACAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pieces\King.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,21 +45,21 @@
   <Class Name="Chess.Piece">
     <Position X="1" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAQAIAAAAAAAAAAAAAAAACAAACAAABgAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAQAIAAAAAAEAAAAAAAAACAAACAAABgAAAAAAA=</HashCode>
       <FileName>Piece.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Chess.Player">
     <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAQAAEAQCgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAQAAEQQCgAAAAAAAAAAQ=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Chess.Program">
-    <Position X="8.25" Y="1" Width="1.5" />
+  <Class Name="Chess.Program" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>ZAYAYIT4AwQAAAAAAAAIAAAAAAT7AIAAIAIARAAAAEI=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>

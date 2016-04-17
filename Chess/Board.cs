@@ -60,7 +60,7 @@ namespace Chess
         {
             return grid[x][y];
         }
-
+        
         /// <summary>
         /// Draws the board to the console
         /// </summary>

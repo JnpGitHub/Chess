@@ -8,22 +8,24 @@ namespace Chess
 {
     abstract class Piece
     {
-        public String color { get; }
-        public Char symbol { get; set; }
+        public string color { get; }
+        public char symbol { get; set; }
         public int x { get; set; }
         public int y { get; set; }
-        private List<int[]> validMoves;
-        
+        private List<int[]> _validMoves = new List<int[]>();
+        public List<int[]> validMoves { get { return _validMoves; } }
+
         /// <summary>
         /// Creates a piece with a color and places it on the board passed at the x and y coordinates
         /// </summary>
-        public Piece(String color, Board board, int x, int y)
+        public Piece(Player player, string color, Board board, int x, int y)
         {
             this.color = color;
             this.x = x;
             this.y = y;
-            validMoves = new List<int[]>();
             board.SetPiece(this, this.x, this.y);
+            player.AddPiece(this);
+            GenerateValidMoves(board);
         }
         
         /// <summary>
@@ -46,6 +48,21 @@ namespace Chess
                 }
             }
             return false;
+        }
+
+        public void GenerateValidMoves(Board board)
+        {
+            validMoves.Clear();
+            for(int y = 0; y < Board.rows; y++)
+            {
+                for(int x = 0; x < Board.columns; x++)
+                {
+                    if(IsValidMove(board, this.x, this.y, x, y))
+                    {
+                        validMoves.Add(new[] { x, y });
+                    }
+                }
+            }
         }
     }
 }

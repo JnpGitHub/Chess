@@ -10,8 +10,11 @@ namespace Chess
     {
         public String color { get; }
         public bool turn { get; set; }
-        private List<Piece> pieces = new List<Piece>();
-        private List<Piece> capturedPieces = new List<Piece>();
+        private List<Piece> _pieces = new List<Piece>();
+        public List<Piece> pieces { get { return _pieces; } }
+
+        private List<Piece> _capturedPieces = new List<Piece>();
+        public List<Piece> capturedPieces { get { return _capturedPieces; } }
 
         /// <summary>
         /// Creates a player with a color and turn

@@ -14,7 +14,7 @@ namespace Chess.Pieces
         /// <summary>
         /// Creates a Pawn piece and sets its firstMove value to true
         /// </summary>
-        public Pawn(String color, Board board, int x, int y) : base(color, board, x, y)
+        public Pawn(Player player, String color, Board board, int x, int y) : base(player, color, board, x, y)
         {
             firstMove = true;
             symbol = 'P';
